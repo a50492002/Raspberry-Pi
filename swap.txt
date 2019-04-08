@@ -1,2 +1,15 @@
-sudo mkfs.ext4 -L Data /dev/sda1
-sudo apt-get install dphys-swapfile
+df -h
+disk /dev/sda
+
+>Command (m for help): n
+...
+>Command (m for help): t
+Hex code (type L to list codes): 82
+>Command (m for help): w
+
+sudo mkswap /dev/sda1
+>Setting up swapspace version 1, size = 262140 KiB
+ no label, UUID=[YOUR_UUID]
+
+sudo nano /etc/fstab
+UUID=[YOUR_UUID]            swap    sw 
