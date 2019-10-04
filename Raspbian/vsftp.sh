@@ -1,3 +1,5 @@
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 sudo apt-get install vsftpd -y
 sudo mkdir /var/ftp
