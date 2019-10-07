@@ -1,0 +1,2 @@
+sudo su
+wpa_passphrase "SSID" "Password" >> /etc/wpa_supplicant/wpa_supplicant.conf
