@@ -11,28 +11,27 @@ faceCascade = cv2.CascadeClassifier('/home/pi/pywork/opencv/data/haarcascades/'+
 
 # Video source
 #capture = cv2.VideoCapture("WIN_20191004_18_03_52_Pro.mp4") # 測試影片(單人)
-capture = cv2.VideoCapture("WIN_20191005_11_01_06_Pro.mp4") # 測試影片(多人)
-#capture = cv2.VideoCapture(0) # 攝像頭0
+#capture = cv2.VideoCapture("WIN_20191005_11_01_06_Pro.mp4") # 測試影片(多人)
+capture = cv2.VideoCapture(0) # 攝像頭0
 
 # get video fps
 fps=round(capture.get(cv2.CAP_PROP_FPS))
 
 count = 0
-number = 0
 while capture.isOpened():
     success, frame = capture.read()
     if count%fps==0:
         if success:
-            
+            tStart = time.time()
             nowtime=datetime.now()
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)#轉灰階
             
             faces = faceCascade.detectMultiScale(
                 gray,
-                scaleFactor=1.1,
-                minNeighbors=1,
+                scaleFactor=1.3,
+                minNeighbors=3,
                 minSize=(36, 36),
-                flags=cv2.CASCADE_DO_CANNY_PRUNING
+                #flags=cv2.CASCADE_DO_CANNY_PRUNING
             )
             
             if len(faces) > 0:  
@@ -43,7 +42,8 @@ while capture.isOpened():
                     image = frame[y - 10: y + h + 10, x - 10: x + w + 10]
                     cv2.imwrite(img_name, image)
                     i+=1
-            number += 1
+            tEnd = time.time()
+            print((tEnd-tStart))
         else:
             break
     count += 1
