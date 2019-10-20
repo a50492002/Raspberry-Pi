@@ -2,7 +2,7 @@
 import sys, json
 import requests
 
-url="https://tc-2019iot.azurewebsites.net/api/Face/Registration"
+url="MyUrl"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'}
 data={
     "email": "a123456789@test.test",
@@ -13,12 +13,14 @@ data={
 result=json.loads(requests.post(url, data, headers).content)
 print(result['isSuccess'])
 
+
+
 #post File
 import sys, json
 import requests
 import time
 
-url="https://tc-2019iot.azurewebsites.net/api/Face/Login"
+url="MyUrl"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'}
 file=open("image/2019-10-09 06:57:04.858072_1.jpg", "rb")
 #s = requests.Session()
