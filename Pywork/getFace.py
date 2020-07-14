@@ -31,7 +31,7 @@ def img(n,s=None):
         x=n+10
         return x;
     
-    count = 0
+count = 0
 while capture.isOpened():
     success, frame = capture.read()
     if count%fps==0:
