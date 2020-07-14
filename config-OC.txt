@@ -1,0 +1,9 @@
+over_voltage=4 # 電壓增幅 範圍 -16~8 預設1.2V 間距 0.025V
+arm_freq=1800 # 處理器時脈 單位:MHz 預設1500
+gpu_freq=750 # 顯示卡時脈 單位:MHz 預設500
+gpu_mem=256 # 顯示記憶體 單位:MB 
+
+hdmi_group:0=2 # 強制啟用顯示0輸出
+hdmi_mode:0=82 # 強制1080P
+hdmi_group:1=2 # 強制啟用顯示1輸出
+hdmi_mode:1=82 # 強制1080P
